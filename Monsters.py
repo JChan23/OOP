@@ -1,7 +1,9 @@
 import os
 
 monster_collection = []
-class Monster:
+
+
+class Monster():
     def __init__(self):
         self.__id = 0
         self.__Name = ""
@@ -15,7 +17,8 @@ class Monster:
         self.__Health = 0
         self.__Mass = 0
 
-    def monster_setter(self, id, Name, Origin, Description, Attack, Magical_Force, Magical_Defence, Defence, Intelligence, Health, Mass):
+    def monster_setter(self, id, Name, Origin, Description, Attack, Magical_Force, Magical_Defence, Defence,
+                       Intelligence, Health, Mass):
         self.__id = id
         self.__Name = Name
         self.__Origin = Origin
@@ -30,24 +33,25 @@ class Monster:
 
     def name_getter(self):
         return self.__Name
-    
-    def id_getter(self):
-        return self.__id
-    
-    def origin_getter(self):
-        return self.__Origin
+
 
 mymonsters = Monster()
+
+
 def read_monsters():
     try:
         with (open('Monsters.txt') as file):
+            count = 0
             for line in file:
                 parts = line.split(",")
-                mymonsters.monster_setter(int(parts[0]),parts[1],parts[2],parts[3],int(parts[4]),int(parts[5]),int(parts[6]),int(parts[7]),int(parts[8]),int(parts[9]),int(parts[10]))
-                monster_collection.append(mymonsters())
+                mymonsters.monster_setter(int(parts[0]), parts[1], parts[2], parts[3], int(parts[4]), int(parts[5]),
+                                          int(parts[6]), int(parts[7]), int(parts[8]), int(parts[9]), int(parts[10]))
+                monster_collection.append(mymonsters)
+                print(monster_collection[count].name_getter())
+                count = count + 1
     except OSError:
-        print("Sorry, could not find the file. Make sure it is in the correct directory. The current directory is",os.getcwd())
-read_monsters()
+        print("Sorry, could not find the file. Make sure it is in the correct directory. The current directory is",
+              os.getcwd())
 
-for i in range(len(monster_collection)):
-    print(monster_collection[i].name_getter())
+
+read_monsters()

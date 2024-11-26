@@ -1,4 +1,4 @@
- class Character:
+class Character:
     def __init__(self):
         self.name = ""
         self.attack = 0
@@ -19,18 +19,18 @@
 
 class Wizard(Character):
     def __init__(self):
-        Character.__init__(self)
+        super().__init__()
         self.magic = 30
 
     def print_me(self):
-        self.print_basics()
+        super().print_basics()
         print("Magic:      ",self.magic)
 
 class Knight(Character):
     def __init__(self):
-        Character.__init__(self)
+        super().__init__()
         self.armour = 30
 
     def print_me(self):
-        self.print_basics()
+        super().print_basics()
         print("Armour:     ", self.armour)

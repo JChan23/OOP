@@ -26,9 +26,9 @@ class Manager(Employee):
     #self.__BonusValue REAL
 
     def __init__(self, pay, ID, title, bonus):
-        super().__init__(pay, ID, title)
+        Employee.__init__(pay, ID, title)
         self.__BonusValue = bonus
 
     def SetPay(self, WeekNum, HoursWorked):
         HoursWorked = HoursWorked*(1+(self.__BonusValue/100))
-        super().SetPay(WeekNum, HoursWorked)
+        self.SetPay(WeekNum, HoursWorked)

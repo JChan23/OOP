@@ -52,3 +52,13 @@ class LinkedList:
             print(current.data, end=" -> ")
             current = current.next
         print("None")
+
+    def print_reverse(self, node):
+        if node is None:
+            return
+        self.print_reverse(node.next)
+        print(node.data, end=' ')
+
+    def reverse_print(self):
+        self.print_reverse(self.head)
+        print()

@@ -53,12 +53,28 @@ class LinkedList:
             current = current.next
         print("None")
 
-    def print_reverse(self, node): #recursive function
+    def reverse_print_recursive_call(self, node): #recursive function
         if node is None:
             return
-        self.print_reverse(node.next)
+        self.reverse_print_recursive_call(node.next)
         print(node.data, end=' ')
 
     def reverse_print(self): #method to be called
-        self.print_reverse(self.head)
+        self.reverse_print_recursive_call(self.head)
         print()
+
+linkedlist = LinkedList()
+linkedlist.insert_to_end(1)
+linkedlist.insert_to_end(2)
+linkedlist.insert_to_end(3)
+linkedlist.display()
+
+linkedlist.insert_to_start(0)
+linkedlist.display()
+linkedlist.reverse_print()
+
+linkedlist.delete(2)
+linkedlist.display()
+
+print(linkedlist.search(3))
+print(linkedlist.search(5))

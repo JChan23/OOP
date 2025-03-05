@@ -32,7 +32,7 @@ def delete(item):
 
     if startPointer == -1:
         print("The list is empty")
-        return False
+        return
 
     current = startPointer
     prev = -1
@@ -41,7 +41,8 @@ def delete(item):
         current = Array[current][1]
 
     if current == -1 or Array[current][0] != item:
-        return False
+        print("Item not found")
+        return
 
     if prev == -1:
         startPointer = Array[current][1]
@@ -50,13 +51,31 @@ def delete(item):
 
     Array[current] = ['', freePointer]
     freePointer = current
-    return True
 
 def search(item):
     current = startPointer
     while current != -1:
         if Array[current][0] == item:
-            return current
+            print("Item found at position", current)
+            return
         current = Array[current][1]
-    return -1
+    print("Item not found")
+    return
 
+delete(17)
+insert(23)
+insert(27)
+insert(50)
+insert(19)
+insert(81)
+insert(99)
+insert(1)
+insert(69)
+insert(42)
+insert(17)
+insert(85)
+delete(42)
+insert(85)
+print(Array)
+search(69)
+search(100)

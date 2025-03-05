@@ -1,4 +1,4 @@
-def evaluate_rpn(expression, stack=None):
+def evaluate_rpn(expression, stack=None): #input expression should be an array
     if stack is None:
         stack = []
 
@@ -23,3 +23,6 @@ def evaluate_rpn(expression, stack=None):
             stack.append(int(first / second))
 
     return evaluate_rpn(expression, stack)
+
+result = evaluate_rpn(['3', '4', '+', '2', '*', '7', '/'])
+print(result)  # Output: 2
